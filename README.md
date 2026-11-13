@@ -40,7 +40,7 @@ mini_project/
 5. Each notebook ends with a cell that zips `outputs/` and downloads it.
    **Send me the outputs zip after each phase** and I'll continue the next step.
 
-## Human input required (I will prompt you for these)
+## Human input required 
 - **HF token** — only if you want a *gated* candidate (Llama-3.2-1B-based). The
   primary model (`Tianye88/Qwen2.5-1.5B-Instruct-Medical-cpt-sft-v1`) is ungated.
 - **Phase 3 taxonomy labels** — both team members annotate the 50-case sheet
