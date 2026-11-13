@@ -38,7 +38,6 @@ mini_project/
    `03_phase2_patching_and_agreement` → `04_phase3_taxonomy` → `05_phase4_report`
    in order. Phase 1 takes a few hours on T4 but is resumable.
 5. Each notebook ends with a cell that zips `outputs/` and downloads it.
-   **Send me the outputs zip after each phase** and I'll continue the next step.
 
 ## Human input required 
 - **HF token** — only if you want a *gated* candidate (Llama-3.2-1B-based). The
