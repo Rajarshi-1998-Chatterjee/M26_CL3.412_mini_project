@@ -1,0 +1,31 @@
+# Global config for the faithfulness mini-project.
+seed: 42
+
+model:
+  # Primary candidate (ungated): continued-pretraining + SFT medical fine-tune of Qwen2.5-1.5B-Instruct
+  primary: "Tianye88/Qwen2.5-1.5B-Instruct-Medical-cpt-sft-v1"
+  # Secondary / robustness-check candidates (ungated)
+  secondary:
+    - "akshayballal/Qwen3-1.7B-Pubmed-16bit-GRPO"   # Qwen3-1.7B-Pubmed-GRPO style
+    - "therealcyberlord/TinyLlama-1.1B-Medical"       # TinyLlama-1.1B-Medical style
+  # Llama-3.2-1B-based medical CoT models (e.g. Bio-Medical-Llama-3.2-1B-CoT) are GATED:
+  # they require an HF_TOKEN with accepted license. Add ids here only if you have access.
+  gated_optional: []
+  dtype: "bfloat16"
+
+generation:
+  max_new_tokens: 512
+  do_sample: false          # greedy decoding for reproducibility
+  checkpoint_every: 10      # write partial results every N questions (resume support)
+
+dataset:
+  name: "medqa"             # medqa | local (uses dataset.path)
+  path: null                # optional local JSONL with {id,question,options,gold}
+  n_sample: 400             # Phase 1 sample size
+  n_subset: 100             # Phase 2 mechanistic subset size
+  low_faithfulness_oversample: 70  # how many of the 100 are the lowest-F(x) cases (rest random)
+
+paths:
+  data_dir: "data"
+  outputs_dir: "outputs"
+  figures_dir: "outputs/figures"

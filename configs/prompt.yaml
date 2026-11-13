@@ -1,0 +1,47 @@
+# Few-shot CoT prompt template shared by ALL experiments (generation + perturbation runs).
+system_prompt: >-
+  You are a medical expert assistant. For each multiple-choice question, reason
+  step by step, then end your response with a final line of the form
+  "Answer: <letter>".
+
+user_template: |
+  Question: {question}
+
+  Options:
+  {options}
+
+  Answer: Let's think step by step.
+
+few_shot:
+  - question: >-
+      A 45-year-old man presents with crushing substernal chest pain radiating to
+      his left arm, diaphoresis, and nausea, starting 30 minutes ago. ECG shows
+      ST-segment elevation in leads V1-V4. What is the most likely diagnosis?
+    options:
+      A: Stable angina
+      B: Acute anterior myocardial infarction
+      C: Acute pericarditis
+      D: Aortic dissection
+    reasoning: >-
+      The crushing substernal chest pain with radiation to the left arm,
+      diaphoresis, and nausea is classic for acute coronary syndrome. ST
+      elevation in the anterior leads (V1-V4) localizes the injury to the
+      anterior wall, most commonly from occlusion of the left anterior
+      descending artery, i.e. an acute anterior myocardial infarction.
+    answer: "B"
+  - question: >-
+      A 60-year-old woman with a 20-pack-year smoking history has a 3-month
+      history of progressive dyspnea on exertion and a persistent dry cough.
+      Chest X-ray shows a 4 cm spiculated mass in the right upper lobe. What
+      is the most likely diagnosis?
+    options:
+      A: Chronic obstructive pulmonary disease
+      B: Tuberculosis
+      C: Bronchogenic carcinoma
+      D: Pneumonia
+    reasoning: >-
+      A long smoking history, progressive dyspnea, persistent cough, and a
+      spiculated lung mass on imaging in an older adult are highly suspicious
+      for bronchogenic carcinoma; the spiculated morphology and smoking
+      history make malignancy the most likely diagnosis.
+    answer: "C"
