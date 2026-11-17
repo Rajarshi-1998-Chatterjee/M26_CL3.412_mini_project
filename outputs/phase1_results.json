@@ -1,0 +1,12 @@
+{
+  "n": 400,
+  "flip_rate_evidence_removal": 0.2625,
+  "flip_rate_control_removal": 0.4475,
+  "mean_F": -0.13606350164109401,
+  "median_F": -0.002711772918701172,
+  "wilcoxon_ev_vs_ctrl_drops": {
+    "statistic": 30296.0,
+    "pvalue": 2.2621129438042925e-05
+  },
+  "accuracy_clean": 0.3525
+}
