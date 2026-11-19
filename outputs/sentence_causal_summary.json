@@ -1,0 +1,15 @@
+{
+  "n_questions": 154,
+  "n_sentences_scored": 1203,
+  "n_with_cited_sentence": 47,
+  "citation_coverage": 0.305,
+  "citation_hits": 8,
+  "citation_precision": 0.17,
+  "chance_precision_among_cited": 0.137,
+  "mean_F_sentence": 0.112,
+  "median_F_sentence": 0.003,
+  "mean_F_original_same_questions": -0.259,
+  "median_F_original_same_questions": -0.645,
+  "questions_where_sentence_F_exceeds_original_F": 27,
+  "questions_where_sentence_F_is_lower": 20
+}

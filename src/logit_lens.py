@@ -29,24 +29,34 @@ def _arch_hint_for(model_id, hf_token=None):
     cfg_path = hf_hub_download(model_id, "config.json", token=hf_token)
     cfg = _json.load(open(cfg_path))
     mt = cfg.get("model_type", "")
-    n_params = cfg.get("num_hidden_layers", 0) * cfg.get("hidden_size", 0) ** 2
-    approx_b = n_params / 1e9
-    hints = {
-        ("qwen2", 1.5): "Qwen/Qwen2.5-1.5B-Instruct",
-        ("qwen2", 0.5): "Qwen/Qwen2.5-0.5B-Instruct",
-        ("qwen3", 1.7): "Qwen/Qwen3-1.7B",
-        ("llama", 1.0): "meta-llama/Llama-3.2-1B",
-        ("llama", 3.0): "meta-llama/Llama-3.2-3B",
-        ("gpt2", 0.0): "gpt2",
-    }
-    for (m, b), name in hints.items():
-        if mt == m and abs(approx_b - b) < max(0.6, 0.4 * b):
+    hidden = cfg.get("hidden_size")
+    layers = cfg.get("num_hidden_layers")
+    heads = cfg.get("num_attention_heads")
+    # Match on shape. layers * hidden^2 under-counts these models and was
+    # selecting Qwen2.5-0.5B (14 heads) for the 1.5B checkpoint (12 heads,
+    # d_model 1536), which then fails inside the Qwen2 weight conversion.
+    shape_hints = [
+        ("qwen2", 1536, 28, 12, "Qwen/Qwen2.5-1.5B-Instruct"),
+        ("qwen2", 896, 24, 14, "Qwen/Qwen2.5-0.5B-Instruct"),
+        ("qwen3", 2048, 28, 16, "Qwen/Qwen3-1.7B"),
+        ("llama", 2048, 16, 32, "meta-llama/Llama-3.2-1B"),
+        ("llama", 3072, 28, 24, "meta-llama/Llama-3.2-3B"),
+        ("gpt2", 768, 12, 12, "gpt2"),
+    ]
+    for model_type, d_model, n_layers, n_heads, name in shape_hints:
+        if mt == model_type and hidden == d_model and layers == n_layers and heads == n_heads:
             return name
     if mt == "llama":
         return "meta-llama/Llama-3.2-1B"
-    if mt == "qwen2":
+    if mt == "qwen2" and hidden == 1536:
         return "Qwen/Qwen2.5-1.5B-Instruct"
-    raise ValueError(f"No TransformerLens architecture hint for model_type={mt} ({model_id})")
+    if mt == "qwen2":
+        return "Qwen/Qwen2.5-0.5B-Instruct"
+    if mt == "qwen3":
+        return "Qwen/Qwen3-1.7B"
+    raise ValueError(
+        f"No TransformerLens architecture hint for model_type={mt} "
+        f"hidden={hidden} layers={layers} heads={heads} ({model_id})")
 
 
 def load_tl_model(model_id, device="cuda", hf_token=None, dtype=None, arch_hint=None):

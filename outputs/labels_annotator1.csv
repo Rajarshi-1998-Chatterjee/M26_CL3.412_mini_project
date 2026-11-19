@@ -1,0 +1,51 @@
+id,primary_label,secondary_label,notes
+medqa-133,question_misreading,knowledge_gap,Asks for the most specific etiology (Leriche / aortoiliac atherosclerosis). Trace correctly sees vascular claudication and selects the syndrome name rather than the lesion.
+medqa-1070,confident_unjustified_leap,reasoning_slip,"Correct Zenker answer, but the trace first says Zenker does not cause cricopharyngeal dysfunction and then says that dysfunction suggests Zenker."
+medqa-209,hallucinated_premise,confident_unjustified_leap,"Correct squamous-cell answer, but the trace calls a painless ulcer painful and invents silica exposure not in the vignette."
+medqa-1271,other,,"Adequate account of odd dress, social isolation, and magical thinking supporting schizotypal personality disorder."
+medqa-23,knowledge_gap,hallucinated_premise,"Misses hospital-acquired pneumonia one week after admission (S. aureus). Also invents a high leukocyte count and severe anemia; the count is 8,900 and hemoglobin is 16."
+medqa-137,knowledge_gap,reasoning_slip,"Does not know radioactive iodine transiently worsens Graves orbitopathy, and treats corticosteroids, which improve the eye disease, as the cause of worsening."
+medqa-882,knowledge_gap,hallucinated_premise,"Creatinine rose from 1.2 to 2.9 after CT for diverticulitis, the contrast-nephropathy pattern. Trace blames metoprolol and treats the creatinine as normal."
+medqa-206,other,,Correct and standard explanation that LOD score > 3 indicates linkage.
+medqa-871,reasoning_slip,knowledge_gap,"Recognizes culture-negative prostatic inflammation, then attributes the illness to interstitial cystitis despite prostatic secretions full of white cells."
+medqa-186,reasoning_slip,knowledge_gap,"States that the ribosome matches the codon rather than the amino acid, then rejects incorporation of the mischarged valine, which is the consequence of that fact."
+medqa-691,reasoning_slip,knowledge_gap,"States that high phenylalanine threatens a pregnancy, then selects the option that says the level poses no risk."
+medqa-566,knowledge_gap,question_misreading,ST elevation in I and aVL with left-atrial and posterior ventricular ischemia is circumflex territory. Trace assigns it to the LAD and an anterior wall the vignette does not describe.
+medqa-564,confident_unjustified_leap,,"Correct dose reduction, but the trace only says organic disease should be excluded and never links the SSRI to the sexual dysfunction or to lowering the dose."
+medqa-753,reasoning_slip,knowledge_gap,"Describes neonatal respiratory-distress syndrome, says meconium aspiration would look different, then selects meconium-stained fluid."
+medqa-471,knowledge_gap,hallucinated_premise,"Woody, hypothyroid, low-uptake gland is Riedel thyroiditis. Trace invents lymphadenopathy and weight loss and chooses medullary carcinoma."
+medqa-351,reasoning_slip,knowledge_gap,"Vein-crusts, anemia, and high reticulocytes in a nurse who demands surgery are factitious. Trace dismisses factitious disorder and then chooses conversion disorder after saying conversion does not fit."
+medqa-985,knowledge_gap,hallucinated_premise,"Absolute lymphocyte count of 50,000 is CLL, not monoclonal B-cell lymphocytosis. Trace also calls a hemoglobin of 15 g/dL low."
+medqa-1216,hallucinated_premise,knowledge_gap,"Denies jugular venous distension that the vignette states, misstates the lacerations, and reads a negative abdominal FAST as excluding hemothorax. The picture is cardiac contusion."
+medqa-3,confident_unjustified_leap,,"Correct E. coli colony description, but the trace never uses the endotoxin clue or the culture morphology and only says the patient is septic."
+medqa-1269,knowledge_gap,hallucinated_premise,"Nocturnal diarrhea, metabolic alkalosis, bulimia, and melanosis coli indicate laxative abuse. Trace calls this celiac disease and invents a family history and a confirmatory biopsy."
+medqa-58,reasoning_slip,knowledge_gap,"Lists schistocytes, renal failure, and thrombocytopenia after bloody diarrhea, the hemolytic-uremic picture, then selects ITP."
+medqa-849,knowledge_gap,,Chemotherapy nausea is mediated at the area postrema. Trace assigns metoclopramide's effect to the vagus nerve.
+medqa-1117,knowledge_gap,question_misreading,"Facial swelling, morning headaches, and a lung mass are superior vena cava syndrome, which can cause papilledema. Trace chooses an ulnar sensory loss that would require an apical Pancoast tumor; the mass is in the middle lobe."
+medqa-1067,question_misreading,reasoning_slip,A third-degree laceration into the perineum threatens the anal sphincter and fecal continence. Trace discusses gestational diabetes and answers vesicovaginal fistula.
+medqa-946,reasoning_slip,knowledge_gap,"Mental status is normal and the signs are purely cerebellar, which points to alcoholic cerebellar degeneration rather than Wernicke encephalopathy. Trace still selects Wernicke."
+medqa-542,other,,Correct reading of an isolated AFP elevation as a neural-tube defect.
+medqa-135,knowledge_gap,reasoning_slip,"CD8 binds MHC I, which presents TAP-transported endogenous peptides. Trace says CD8 does not participate in antigen presentation and selects exogenous endosomal peptide."
+medqa-629,knowledge_gap,question_misreading,A positive posterior drawer is a PCL injury. The PCL runs posteriorly from the medial femoral condyle. Trace treats the test as quadriceps weakness.
+medqa-191,knowledge_gap,reasoning_slip,"Sacral agenesis is strongly associated with maternal diabetes. Trace treats the lack of a mentioned history, in a woman with no prenatal care, as evidence for alcohol."
+medqa-1161,knowledge_gap,hallucinated_premise,"Rash, diarrhea, and confusion during tuberculosis therapy are isoniazid-related B6 deficiency. Trace attributes the problem to rifampin blocking RNA polymerase and collagen synthesis."
+medqa-1133,confident_unjustified_leap,,"Correct Tdap booster, but the trace argues from HPV risk and then from pneumonia and meningitis, not from the 13 years since the last tetanus-containing vaccine."
+medqa-974,reasoning_slip,,"He stopped smoking for a year and then started again, which is relapse. The trace says relapse is unlikely and selects maintenance while describing the relapse."
+medqa-201,question_misreading,knowledge_gap,Asks which risk combined oral contraceptives decrease (ovarian cancer). Trace discusses an increased breast-cancer risk and selects that option.
+medqa-799,knowledge_gap,reasoning_slip,Cardiogenic shock after a large STEMI needs beta-1 stimulation. Trace calls norepinephrine an alpha-2 drug and selects that receptor.
+medqa-1191,reasoning_slip,knowledge_gap,"Names weight gain as a thiazolidinedione effect, then selects empagliflozin, which causes weight loss, and says sulfonylureas cause weight loss."
+medqa-218,reasoning_slip,knowledge_gap,"Describes dermal wheals from histamine, says the stratum corneum would not change, and then selects the stratum corneum."
+medqa-134,reasoning_slip,knowledge_gap,"Describes the high-PTH, low-calcium, high-phosphate, low-calcitriol pattern of chronic kidney disease, then selects the normal-laboratory option."
+medqa-198,knowledge_gap,question_misreading,Intermittent administration before menses is pulsatile GnRH-agonist use for ovulation; continuous use treats prostate cancer. Trace discusses clomiphene and selects PCOS.
+medqa-1272,other,,"Smoking history, hyperinflation, and FEV1/FVC of 56% are used appropriately to diagnose COPD."
+medqa-330,reasoning_slip,knowledge_gap,Acute hypoxemic death after trauma with heavy red lungs is diffuse alveolar damage and interstitial edema. Trace dismisses edema as a slow process and selects a rare carcinoma.
+medqa-584,knowledge_gap,,"Recurrent pneumothorax after a correctly placed chest tube, with subcutaneous emphysema after high-energy trauma, is tracheobronchial injury. Trace blames an unsealed puncture."
+medqa-1177,other,,"Kayser-Fleischer rings, psychiatric change, and ataxia are tied to copper accumulation in Wilson disease."
+medqa-574,knowledge_gap,reasoning_slip,Loss of glomerular negative charge is minimal-change disease and is confirmed by selective albuminuria. Trace discards that finding and selects Bence-Jones protein.
+medqa-124,knowledge_gap,question_misreading,"Congenital hypothyroidism causes hypotonia, umbilical hernia, and macroglossia, and causes constipation rather than diarrhea. Trace says macroglossia is unexpected and diarrhea is typical."
+medqa-583,knowledge_gap,reasoning_slip,Flat T waves treated with a thiazide are not explained. Trace invents post-infectious myositis and selects rheumatoid arthritis after calling it the least related option.
+medqa-600,knowledge_gap,hallucinated_premise,Protein conjugation lets infants under two mount a T-cell-dependent response. Trace invents immunoglobulin-chain structure for tetanus toxoid and selects vaccine stability.
+medqa-824,confident_unjustified_leap,knowledge_gap,"Selects gp120, but the trace says maraviroc affects CD4 and CCR5 and never connects the drug to gp120."
+medqa-789,knowledge_gap,,Polymorphic VT with a changing QRS axis on azithromycin is torsades from QT prolongation. Trace calls that pattern Brugada syndrome.
+medqa-59,knowledge_gap,reasoning_slip,"Normal-BMI purging is bulimia nervosa, which is not further subtyped. Trace says diuretic use means severe weight loss despite a normal BMI and selects a mixed anorexia-bulimia history."
+medqa-733,other,,"Projectile vomiting with an olive mass is pyloric stenosis, and loss of gastric acid is metabolic alkalosis. The trace reaches that disturbance."

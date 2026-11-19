@@ -1,0 +1,20 @@
+{
+  "annotator": "single careful pass",
+  "n": 50,
+  "primary_distribution": {
+    "question_misreading": 3,
+    "confident_unjustified_leap": 5,
+    "hallucinated_premise": 2,
+    "other": 6,
+    "knowledge_gap": 22,
+    "reasoning_slip": 12
+  },
+  "secondary_distribution": {
+    "knowledge_gap": 15,
+    "reasoning_slip": 9,
+    "confident_unjustified_leap": 1,
+    "hallucinated_premise": 7,
+    "question_misreading": 5
+  },
+  "note": "One pass only. Cohen's kappa needs a second independent annotator and was not computed."
+}

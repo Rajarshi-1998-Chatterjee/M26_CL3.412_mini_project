@@ -93,12 +93,53 @@ def read_records(path):
 
 # ---------- Model loading ----------
 
+_TOKENIZER_FILES = {
+    "tokenizer.json",
+    "tokenizer.model",
+    "tokenizer_config.json",
+    "vocab.json",
+    "merges.txt",
+    "spiece.model",
+}
+
+
+def _tokenizer_id_for(model_id, hf_token=None):
+    """Use model_id's tokenizer, or the base model's if the checkpoint has none.
+
+    Tianye88/Qwen2.5-1.5B-Instruct-Medical-cpt-sft-v1 ships weights and
+    config.json only. Its vocab matches Qwen/Qwen2.5-1.5B-Instruct.
+    """
+    import json
+    from huggingface_hub import hf_hub_download, list_repo_files
+
+    files = set(list_repo_files(model_id, token=hf_token))
+    if files & _TOKENIZER_FILES:
+        return model_id
+    cfg = json.load(open(hf_hub_download(model_id, "config.json", token=hf_token)))
+    model_type = cfg.get("model_type", "")
+    hidden = cfg.get("hidden_size")
+    if model_type == "qwen2" and hidden == 1536:
+        return "Qwen/Qwen2.5-1.5B-Instruct"
+    if model_type == "qwen2" and hidden == 896:
+        return "Qwen/Qwen2.5-0.5B-Instruct"
+    if model_type == "qwen2":
+        return "Qwen/Qwen2.5-1.5B-Instruct"
+    if model_type == "qwen3":
+        return "Qwen/Qwen3-1.7B"
+    if model_type == "llama":
+        return "meta-llama/Llama-3.2-1B"
+    raise OSError(f"{model_id} has no tokenizer files and no known base tokenizer")
+
+
 def load_model_and_tokenizer(model_id, dtype="bfloat16", device_map="auto", hf_token=None):
     """Load an HF causal LM + tokenizer. dtype: bfloat16 | float16 | float32."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    tok = AutoTokenizer.from_pretrained(model_id, token=hf_token)
+    tok_id = _tokenizer_id_for(model_id, hf_token)
+    if tok_id != model_id:
+        print(f"[common] {model_id} has no tokenizer files; using {tok_id}")
+    tok = AutoTokenizer.from_pretrained(tok_id, token=hf_token)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     torch_dtype = {"bfloat16": torch.bfloat16, "float16": torch.float16,
